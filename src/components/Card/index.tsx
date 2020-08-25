@@ -1,22 +1,33 @@
+import { Delete, Edit } from '@material-ui/icons/';
 import React from 'react';
 import * as S from './styles';
-import { Delete } from '@material-ui/icons';
 
 interface CardProps {
   CardImage: string;
   CardTitle: string;
   CardDescription: string;
-  Icons: React.FunctionComponent;
+  onClick: () => void;
 }
 
 const Card = (props: CardProps) => {
   return (
     <S.Container>
-      <S.CardImage src={props.CardImage} />
+      <S.CardImage src={props.CardImage} onClick={props.onClick} />
       <S.CardTitle>{props.CardTitle}</S.CardTitle>
       <S.CardDescription>{props.CardDescription}</S.CardDescription>
       <S.Buttons>
-        <Delete />
+        <Delete
+          style={{ cursor: 'pointer' }}
+          width="14"
+          height="18"
+          onClick={() => console.log('Deletar')}
+        />
+        <Edit
+          style={{ cursor: 'pointer' }}
+          width="14"
+          height="18"
+          onClick={() => console.log('Editar')}
+        />
       </S.Buttons>
     </S.Container>
   );

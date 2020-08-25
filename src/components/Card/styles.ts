@@ -2,7 +2,11 @@ import styled from 'styled-components';
 
 export const Container = styled.div``;
 
-export const CardImage = styled.img``;
+export const CardImage = styled.img`
+  &:hover {
+    cursor: pointer;
+  }
+`;
 
 export const CardTitle = styled.h1``;
 
