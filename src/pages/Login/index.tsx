@@ -1,22 +1,22 @@
 import React from 'react';
-import * as S from './styles';
-
 import Button from '../../components/Button';
+import * as S from './styles';
+import Logo from '../../assets/logos/logo.svg';
 
 const Login: React.FC = () => {
   return (
     <S.Container>
       <S.Card>
-        <S.Logo />
+        <S.Logo src={Logo} alt="logo da nave.rs - foguete ao lado do nave.rs" />
         <S.EmailGroup>
-          <S.Text></S.Text>
-          <S.Input></S.Input>
+          <S.Text>E-mail</S.Text>
+          <S.Input placeholder="E-mail"></S.Input>
         </S.EmailGroup>
         <S.PasswordGroup>
-          <S.Text></S.Text>
-          <S.Input></S.Input>
+          <S.Text>Senha</S.Text>
+          <S.Input placeholder="Senha"></S.Input>
         </S.PasswordGroup>
-        <Button></Button>
+        <Button text="Entrar"/>
       </S.Card>
     </S.Container>
   );

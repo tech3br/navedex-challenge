@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 import * as S from './styles';
 
-const Button: React.FC = () => {
-  return (
-    <S.Button />
-  );
+interface ButtonProps {
+  text: string;
+}
+
+const Button = (props: ButtonProps) => {
+  return <S.Button>{props.text}</S.Button>;
 };
 
 export default Button;
