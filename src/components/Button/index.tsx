@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import { Link } from 'react-router-dom';
 import * as S from './styles';
 
@@ -7,12 +7,34 @@ interface ButtonProps {
   link: string;
   width: string;
   height: string;
+  background: string;
+  color: string;
+  margin?: string;
+  border?: string;
+  onClick?: () => void;
 }
 
 const Button = (props: ButtonProps) => {
   return (
-    <Link to={props.link}>
-      <S.Button width={props.width} height={props.height}>
+    <Link
+      to={props.link}
+      style={{
+        padding: 0,
+        margin: 0,
+        textDecoration: 'none',
+        border: 'none',
+        outline: 'none',
+      }}
+    >
+      <S.Button
+        width={props.width}
+        height={props.height}
+        onClick={props.onClick}
+        background={props.background}
+        color={props.color}
+        margin={props.margin}
+        border={props.border}
+      >
         {props.text}
       </S.Button>
     </Link>

@@ -6,27 +6,29 @@ interface CardProps {
   CardImage: string;
   CardTitle: string;
   CardDescription: string;
-  onClick: () => void;
+  onClickCardImage: () => void;
+  onClickDelete: () => void;
+  onClickEdit: () => void;
 }
 
 const Card = (props: CardProps) => {
   return (
     <S.Container>
-      <S.CardImage src={props.CardImage} onClick={props.onClick} />
+      <S.CardImage src={props.CardImage} onClick={props.onClickCardImage} />
       <S.CardTitle>{props.CardTitle}</S.CardTitle>
       <S.CardDescription>{props.CardDescription}</S.CardDescription>
       <S.Buttons>
         <Delete
-          style={{ cursor: 'pointer' }}
+          style={{ cursor: 'pointer', margin: '8px' }}
           width="14"
           height="18"
-          onClick={() => console.log('Deletar')}
+          onClick={props.onClickDelete}
         />
         <Edit
-          style={{ cursor: 'pointer' }}
+          style={{ cursor: 'pointer', margin: '8px' }}
           width="14"
           height="18"
-          onClick={() => console.log('Editar')}
+          onClick={props.onClickEdit}
         />
       </S.Buttons>
     </S.Container>
