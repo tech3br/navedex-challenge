@@ -16,7 +16,7 @@ const Login: React.FC = () => {
           <S.Text>Senha</S.Text>
           <S.Input placeholder="Senha"></S.Input>
         </S.PasswordGroup>
-        <Button text="Entrar"/>
+        <Button link="main" text="Entrar"/>
       </S.Card>
     </S.Container>
   );

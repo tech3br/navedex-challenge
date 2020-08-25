@@ -25,12 +25,15 @@ export const Logo = styled.img`
   height: 60px;
   margin-top: 40px;
 `;
+
 export const EmailGroup = styled.div`
   margin-top: 40px;
 `;
+
 export const PasswordGroup = styled.div`
   margin-top: 32px;
 `;
+
 export const Text = styled.label`
   display: flex;
   font-style: normal;
@@ -41,6 +44,7 @@ export const Text = styled.label`
   color: #212121;
   margin-bottom: 4px;
 `;
+
 export const Input = styled.input`
   width: 384px;
   height: 40px;

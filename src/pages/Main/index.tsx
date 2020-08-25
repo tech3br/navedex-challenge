@@ -1,12 +1,17 @@
 import React from 'react';
 
-import { Container } from './styles';
+import * as S from './styles';
 
 const Main: React.FC = () => {
   return (
-    <Container>
-      <h1>Main</h1>
-    </Container>
+    <S.Container>
+      <S.Header>
+        <S.LogoNav />
+        <S.Nav>
+          <S.Link />
+        </S.Nav>
+      </S.Header>
+    </S.Container>
   );
 };
 
