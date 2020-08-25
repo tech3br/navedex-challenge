@@ -1,8 +1,13 @@
 import styled from 'styled-components';
 
-export const Button = styled.button`
-  width: 384px;
-  height: 40px;
+interface Props {
+  width: string;
+  height: string;
+}
+
+export const Button = styled.button<Props>`
+  width: ${(props) => props.width + "px"};
+  height: ${(props) => props.height+ "px"};
   line-height: 24px;
   margin-top: 32px;
   font-style: normal;

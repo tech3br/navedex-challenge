@@ -2,14 +2,14 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
   
-  /*resetando as configs iniciais*/
+  /* resetando as configurações iniciais */
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
 
-  /*setando configs de fonte e tamanho de tela */
+  /* setando configurações de fonte e tamanho de tela */
   html,
   body,
   #root {
