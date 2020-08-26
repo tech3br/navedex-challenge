@@ -3,9 +3,10 @@ import AvatarImage1 from '../../assets/avatar_imgs/IMG_9945.svg';
 import Logo from '../../assets/logos/logo.svg';
 import Button from '../../components/Button';
 import Card from '../../components/Card';
-import ModalView from '../../components/ModalView';
 import ModalDelete from '../../components/ModalDelete';
+import ModalView from '../../components/ModalView';
 import * as S from './styles';
+import { api } from '../../services/api';
 
 // definindo propriedades do modal de visualização
 interface ModalViewProps {
@@ -85,7 +86,7 @@ const Main: React.FC = () => {
         ModalDescription="Tem certeza que deseja excluir este Naver?"
         onClickDelete={() => console.log('deletado')}
         onClickCancel={() => {
-          return setOpenModalDelete({ value: false });
+          setOpenModalDelete({ value: false });
         }}
       />
     </S.Container>
