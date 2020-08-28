@@ -42,7 +42,6 @@ const ModalDelete = (props: ModalDeleteProps) => {
                 height="40"
                 text="Cancelar"
                 link=""
-                onClick={props.onClickCancel}
                 background="#FFFFFF"
                 color="#212121"
                 margin="0px 20px 0px 0px"
@@ -53,7 +52,6 @@ const ModalDelete = (props: ModalDeleteProps) => {
                 height="40"
                 text="Excluir"
                 link=""
-                onClick={props.onClickDelete}
                 background="#212121"
                 color="#FFFFFF"
                 border="1px solid #212121"

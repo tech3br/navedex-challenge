@@ -7,6 +7,7 @@ import ModalDelete from '../../components/ModalDelete';
 import ModalView from '../../components/ModalView';
 import * as S from './styles';
 import { api } from '../../services/api';
+import { useHistory } from 'react-router-dom';
 
 // definindo propriedades do modal de visualização
 interface ModalViewProps {
@@ -18,14 +19,21 @@ interface ModalDeleteProps {
 }
 
 const Main: React.FC = () => {
+  const history = useHistory();
   //setando configurações via estado para o modal de visualização
   const [openModalView, setOpenModalView] = useState<ModalViewProps>({
     value: false,
   });
+
   //setando configurações via estado para o modal de exclusão
   const [openModalDelete, setOpenModalDelete] = useState<ModalDeleteProps>({
     value: false,
   });
+
+  const Exit = () => {
+    localStorage.removeItem('userKey');
+    history.push('/');
+  };
 
   return (
     <S.Container>
@@ -35,7 +43,7 @@ const Main: React.FC = () => {
           alt="logo da nave.rs ao lado esquerdo do header"
         />
         <S.Nav>
-          <S.Link>Sair</S.Link>
+          <S.Link onClick={Exit}>Sair</S.Link>
         </S.Nav>
       </S.Header>
       <S.Content>

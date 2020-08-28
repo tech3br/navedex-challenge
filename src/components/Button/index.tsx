@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import * as S from './styles';
 
+
 interface ButtonProps {
   text: string;
   link: string;
@@ -11,7 +12,8 @@ interface ButtonProps {
   color: string;
   margin?: string;
   border?: string;
-  onClick?: () => void;
+  onClick?: any;
+  type?: any;
 }
 
 const Button = (props: ButtonProps) => {
@@ -34,6 +36,7 @@ const Button = (props: ButtonProps) => {
         color={props.color}
         margin={props.margin}
         border={props.border}
+        type={props.type}
       >
         {props.text}
       </S.Button>

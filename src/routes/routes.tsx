@@ -1,17 +1,47 @@
-import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import React, { FunctionComponent, ReactChildren, ReactNode } from 'react';
+import {
+  BrowserRouter,
+  Route,
+  Switch,
+  Redirect,
+  RouteProps,
+} from 'react-router-dom';
 import Login from '../pages/Login';
 import Main from '../pages/Main';
+import { Authorization } from '../config/Autorization';
 
-const Routes: React.FC = () => {
+interface PrivateRouteProps extends RouteProps {
+  component?: any;
+  path?: string;
+  exact?: boolean;
+  children?: any;
+}
+
+const PrivateRoute = (props: PrivateRouteProps) => {
+  const { component: Component, children, ...rest } = props;
+
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/" exact={true} component={Login} />
-        <Route path="/main" component={Main} />
-      </Switch>
-    </BrowserRouter>
+    <Route
+      {...rest}
+      render={(routeProps) =>
+        Authorization() ? (
+          <Component {...routeProps} />
+        ) : (
+          <Redirect to={{ pathname: '/' }} />
+        )
+      }
+    />
   );
 };
+
+const Routes = () => (
+  <BrowserRouter>
+    <Switch>
+      <PrivateRoute path="/main" component={Main} />
+      <Route exact path="/" component={Login} />
+      <Redirect from="*" to="/" />
+    </Switch>
+  </BrowserRouter>
+);
 
 export default Routes;

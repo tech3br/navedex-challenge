@@ -19,7 +19,11 @@ export const LogoNav = styled.img`
 
 export const Nav = styled.div``;
 
-export const Link = styled.div``;
+export const Link = styled.a`
+  &:hover {
+    cursor: pointer;
+  }
+`;
 
 export const Content = styled.div`
   display: flex;
@@ -48,5 +52,3 @@ export const TitleContent = styled.div`
   align-items: center;
   color: #212121;
 `;
-
-
