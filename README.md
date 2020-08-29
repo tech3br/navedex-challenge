@@ -1,44 +1,65 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Desafio de frontend
 
-## Available Scripts
+## Navedex - criado por Daniel Filgueira - [tech3br](https://github.com/tech3br)
 
-In the project directory, you can run:
+O Navedex foi desenvolvido para a obtenção da vaga de frontend developer na Nave.rs.
 
-### `yarn start`
+O sistema consiste em uma web app para visualização e criação dos navers, possuindo informações como: nomes, idades, cargos, tempo de empresa e projetos que participou.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Instalação de bibliotecas do projeto
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Use o package manager [yarn](https://yarnpkg.com) para instalar as bibliotecas necessarias.
 
-### `yarn test`
+```
+yarn
+```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ou
 
-### `yarn build`
+```
+yarn install
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Iniciando o projeto
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Use o package manager [yarn](https://yarnpkg.com) para iniciar o projeto.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+yarn start
+```
 
-### `yarn eject`
+## Buildando o projeto
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Use o package manager [yarn](https://yarnpkg.com) para buildar o projeto.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+yarn build
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Desenvolvimento
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Este projeto foi desenvolvido usando ReactJS, Styled Components, Typescript, Axios, Material UI, react-router-dom, react-router, react-responsive-modal, react-toastify, dentre outras listadas no package.json.
 
-## Learn More
+## Layout
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Usei as telas do FIGMA para me guiar no desenvolvimento.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+O código de CSS não foi 100% fiel mas chegou bem próximo.
+
+O layout é importante mas funcionalidades mais ainda.
+
+## Contribuição e Experiencias
+
+O projeto serviu como experiencias para treino e uso de libs (toastify nunca tinha usado) e também para gerir o tempo de entrega.
+
+Foquei em tipagem, funcionalidades. O CSS ficou muito bom ao meu ver. Mas sempre da para melhorar.
+
+## Dificuldades
+
+As maiores dificuldades foram com o TS pois existem dados que eu nunca havia tipado como por exemplo rotas e metodos de input, mas peguei rapido e pesquisei no stackoverflow como tipar eventos;
+
+Acabei aprendendo mais sobre evento de HTML elements e de TS também;
+
+No mais, o tempo conta muito também no desenvolvimento de um projeto. Portanto, sempre poderia ser melhor do que foi.
+
+#OBRIGADO Nave.rs!!!

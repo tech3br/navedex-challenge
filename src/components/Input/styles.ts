@@ -6,7 +6,8 @@ interface Props {
   background: string;
   color: string;
   margin?: string;
-  border?: string;
+  borderWidth?: string;
+  borderColor?: string;
 }
 
 export const Input = styled.input<Props>`
@@ -15,5 +16,9 @@ export const Input = styled.input<Props>`
   background: ${(props) => props.background};
   color: ${(props) => props.color};
   margin: ${(props) => props.margin};
-  border: ${(props) => props.border};
+  border-width: ${(props) => props.borderWidth};
+  border-color: ${(props) => props.borderColor};
+  border-style: solid;
+  padding: 0px 16px;
+
 `;

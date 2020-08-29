@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactChildren, ReactNode } from 'react';
+import React from 'react';
 import {
   BrowserRouter,
   Route,
@@ -8,6 +8,8 @@ import {
 } from 'react-router-dom';
 import Login from '../pages/Login';
 import Main from '../pages/Main';
+import Add from '../pages/Add';
+import Edit from '../pages/Edit';
 import { Authorization } from '../config/Autorization';
 
 interface PrivateRouteProps extends RouteProps {
@@ -38,6 +40,8 @@ const Routes = () => (
   <BrowserRouter>
     <Switch>
       <PrivateRoute path="/main" component={Main} />
+      <PrivateRoute path="/add" component={Add} />
+      <PrivateRoute path="/edit/:id" component={Edit} />
       <Route exact path="/" component={Login} />
       <Redirect from="*" to="/" />
     </Switch>

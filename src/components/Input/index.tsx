@@ -8,7 +8,11 @@ interface InputProps {
   background: string;
   color: string;
   margin?: string;
-  border?: string;  
+  border?: string;
+  placeholder?: string;
+  borderWidth?: string;
+  borderColor?: string;
+  onChange: () => void;
 }
 
 const Input = (props: InputProps) => {
@@ -19,6 +23,10 @@ const Input = (props: InputProps) => {
       background={props.background}
       color={props.color}
       margin={props.margin}
+      placeholder={props.placeholder}
+      borderWidth={props.borderWidth}
+      borderColor={props.borderColor}
+      onChange={props.onChange}
     />
   );
 };

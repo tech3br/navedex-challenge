@@ -93,7 +93,6 @@ const Login: React.FC<any> = () => {
           <Button
             width="384"
             height="40"
-            link="main"
             text="Entrar"
             background="#212121"
             color="#FFFFFF"

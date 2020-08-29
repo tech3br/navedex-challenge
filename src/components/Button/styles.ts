@@ -17,7 +17,6 @@ export const Button = styled.button<Props>`
   margin: ${(props) => props.margin};
   border: ${(props) => props.border};
   line-height: 24px;
-  margin-top: 32px;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;

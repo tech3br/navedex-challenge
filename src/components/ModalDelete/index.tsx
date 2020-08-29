@@ -35,29 +35,25 @@ const ModalDelete = (props: ModalDeleteProps) => {
         <S.ModalTitle>{props.ModalTitle}</S.ModalTitle>
         <S.ModalDescription>{props.ModalDescription}</S.ModalDescription>
         <S.ModalButton>
-          {props.buttonHide ? null : (
-            <>
-              <Button
-                width="176"
-                height="40"
-                text="Cancelar"
-                link=""
-                background="#FFFFFF"
-                color="#212121"
-                margin="0px 20px 0px 0px"
-                border="1px solid #212121"
-              />
-              <Button
-                width="176"
-                height="40"
-                text="Excluir"
-                link=""
-                background="#212121"
-                color="#FFFFFF"
-                border="1px solid #212121"
-              />
-            </>
-          )}
+          <Button
+            width="176"
+            height="40"
+            text="Cancelar"
+            background="#FFFFFF"
+            color="#212121"
+            margin="0px 20px 0px 0px"
+            border="1px solid #212121"
+            onClick={props.onClickCancel}
+          />
+          <Button
+            width="176"
+            height="40"
+            text="Excluir"
+            background="#212121"
+            color="#FFFFFF"
+            border="1px solid #212121"
+            onClick={props.onClickDelete}
+          />
         </S.ModalButton>
       </S.ModalContent>
     </Modal>

@@ -6,6 +6,7 @@ import { api } from '../../services/api';
 import { showError } from '../../global';
 import { success } from '../../config/msgs';
 import { ToastContainer } from 'react-toastify';
+import { MdArrowBack } from 'react-icons/md';
 
 interface NameProps {
   value: string;
@@ -26,16 +27,7 @@ interface URLProps {
   value: string;
 }
 
-interface NaverProps {
-  id: string
-}
-
-const Edit: React.FC<any> = (props: any) => {
-  
-  const { match } = props
-  const [naver, setNaver] = useState<NaverProps>({ id: match.params.id })
-  console.log(match)
-
+const Add: React.FC<any> = () => {
   const [nameState, setNameState] = useState<NameProps>({
     value: '',
   });
@@ -86,8 +78,8 @@ const Edit: React.FC<any> = (props: any) => {
     setURLState({ value: event.currentTarget.value });
   };
 
-  async function editNaver(event: { preventDefault: () => void }) {
-    event.preventDefault();    
+  async function addNaver(event: { preventDefault: () => void }) {
+    event.preventDefault();
 
     const job_role = jobRoleState;
     const admission_date = admissionDateState;
@@ -109,7 +101,7 @@ const Edit: React.FC<any> = (props: any) => {
     console.log(token);
 
     await api
-      .put(`/navers/${naver.id}`, {
+      .post('/navers', {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
@@ -127,11 +119,13 @@ const Edit: React.FC<any> = (props: any) => {
     <S.Container>
       <S.Content>
         <S.HeaderContent>
-          <S.LinkComponent to="/main">{'→'}</S.LinkComponent>
-          <S.TitleContent>Editar Naver</S.TitleContent>
+          <S.LinkComponent to="/main">
+            <MdArrowBack size={22} />
+          </S.LinkComponent>
+          <S.TitleContent>Adicionar Naver</S.TitleContent>
         </S.HeaderContent>
         <S.Body>
-          <S.Form onSubmit={editNaver}>
+          <S.Form onSubmit={addNaver}>
             <div>
               <fieldset>
                 <S.Label>Nome</S.Label>
@@ -229,4 +223,4 @@ const Edit: React.FC<any> = (props: any) => {
   );
 };
 
-export default Edit;
+export default Add;
