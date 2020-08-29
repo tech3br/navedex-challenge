@@ -7,23 +7,22 @@ import { BrowserRouter } from 'react-router-dom';
 const Layout: React.FC = () => {
   const [isValid, setIsValid] = useState<boolean>(false);
 
+  const userKey = localStorage.getItem('userKey');
+
   useEffect(() => {
-    function d() {
-      if (window.location.pathname !== '/') {
-        return setIsValid(true);
-      }
+    if (userKey) {
+      setIsValid(true);
+    } else {
+      setIsValid(false);
     }
-    d();
   }, []);
 
   return (
-    <>
-      <BrowserRouter>
-        {isValid && <Header />}
-        <Routes />
-        <GlobalStyles />
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      {isValid === true ? <Header /> : null}
+      <Routes />
+      <GlobalStyles />
+    </BrowserRouter>
   );
 };
 

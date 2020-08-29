@@ -44,7 +44,12 @@ interface NaverProps {
   user_id: string;
 }
 
-const Main: React.FC = () => {
+interface NaverIdProps {
+  id: string;
+}
+
+const Main: React.FC = (props: any) => {
+  const { match } = props;
   const history = useHistory();
   //setando configurações via estado para o modal de visualização
   const [openModalView, setOpenModalView] = useState<ModalViewProps>({
@@ -65,6 +70,8 @@ const Main: React.FC = () => {
   const [navers, setNavers] = useState<NaversProps>({
     value: [],
   });
+
+  const [naver, setNaver] = useState<NaverIdProps>({ id: match.params.id });
 
   //setando valores da propriedades do naver
   const [naverState, setNaverState] = useState<NaverProps>({
@@ -124,10 +131,6 @@ const Main: React.FC = () => {
     history.push('/add');
   };
 
-  const editNaver = () => {
-    history.push('/edit/:id');
-  };
-
   useEffect(() => {
     getNavers();
   }, []);
@@ -183,14 +186,15 @@ const Main: React.FC = () => {
                     });
                     setOpenModalDelete({ value: true });
                   }}
-                  onClickEdit={editNaver}
+                  idUser={naver.id}
+                  onClickEdit={() => console.log('nada')}
                   key={naver.id}
                 />
               );
             })}
         </S.ContentBox>
         <ModalView
-          image={AvatarImage1}
+          image={naverState.url}
           ModalTitle={naverState.name}
           ModalDescription={naverState.job_role}
           ModalSubTitle1="Idade"
@@ -204,7 +208,7 @@ const Main: React.FC = () => {
           onClickDelete={() => {
             setOpenModalDelete({ value: true });
           }}
-          onClickEdit={editNaver}
+          onClickEdit={() => console.log('nada')}
           key={naverState.id}
         />
         <ModalDelete

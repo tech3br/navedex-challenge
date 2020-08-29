@@ -37,12 +37,12 @@ const PrivateRoute = (props: PrivateRouteProps) => {
 };
 
 const Routes = () => (
+  
   <Switch>
     <PrivateRoute path="/main" component={Main} />
     <PrivateRoute path="/add" component={Add} />
-    <PrivateRoute path="/edit/:id" component={Edit} />
+    <PrivateRoute path={'/edit/:id'} component={Edit} />
     <Route exact path="/" component={Login} />
-    <Redirect from="*" to="/" />
   </Switch>
 );
 

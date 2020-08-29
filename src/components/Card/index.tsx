@@ -1,6 +1,7 @@
 import { Delete, Edit } from '@material-ui/icons/';
 import React from 'react';
 import * as S from './styles';
+import { Link } from 'react-router-dom';
 
 interface CardProps {
   CardImage: string;
@@ -9,9 +10,14 @@ interface CardProps {
   onClickCardImage: () => void;
   onClickDelete: () => void;
   onClickEdit: () => void;
+  idUser: string;
 }
 
 const Card = (props: CardProps) => {
+  const newTo = {
+    id: props.idUser,
+  };
+
   return (
     <S.Container>
       <S.CardImage src={props.CardImage} onClick={props.onClickCardImage} />
@@ -24,12 +30,14 @@ const Card = (props: CardProps) => {
           height="18"
           onClick={props.onClickDelete}
         />
-        <Edit
-          style={{ cursor: 'pointer', margin: '8px' }}
-          width="14"
-          height="18"
-          onClick={props.onClickEdit}
-        />
+        <Link style={{ textDecoration: 'none', color: "#000000" }} to={`/edit/${newTo.id}`}>
+          <Edit
+            style={{ cursor: 'pointer', margin: '8px' }}
+            width="14"
+            height="18"
+            onClick={props.onClickEdit}
+          />
+        </Link>
       </S.Buttons>
     </S.Container>
   );

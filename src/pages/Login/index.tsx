@@ -73,7 +73,7 @@ const Login: React.FC<any> = () => {
     <S.Container>
       <S.Card>
         <S.Logo src={Logo} alt="logo da nave.rs - foguete ao lado do nave.rs" />
-        <form onSubmit={(e) => handleSubmit(e)}>
+        <form onSubmit={handleSubmit}>
           <S.EmailGroup>
             <S.Text>E-mail</S.Text>
             <S.Input
@@ -92,6 +92,7 @@ const Login: React.FC<any> = () => {
               type="password"
             ></S.Input>
           </S.PasswordGroup>
+
           <Button
             width="384"
             height="40"
@@ -100,7 +101,6 @@ const Login: React.FC<any> = () => {
             color="#FFFFFF"
             border="none"
             type="submit"
-            onClick={handleSubmit}
           />
         </form>
       </S.Card>
