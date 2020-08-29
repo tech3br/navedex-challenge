@@ -147,46 +147,48 @@ const Main: React.FC = () => {
             onClick={addNaver}
           />
         </S.HeaderContent>
-        {navers &&
-          navers.value.map((naver: NaverProps) => {
-            return (
-              <Card
-                CardTitle={naver.name}
-                CardDescription={naver.job_role}
-                CardImage={naver.url}
-                onClickCardImage={() => {
-                  setOpenModalView({
-                    value: true,
-                  });
-                  setNaverState({
-                    id: naver.id,
-                    admission_date: naver.admission_date,
-                    birthdate: naver.birthdate,
-                    job_role: naver.job_role,
-                    name: naver.name,
-                    project: naver.project,
-                    url: naver.url,
-                    user_id: naver.user_id,
-                  });
-                }}
-                onClickDelete={() => {
-                  setNaverState({
-                    id: naver.id,
-                    admission_date: naver.admission_date,
-                    birthdate: naver.birthdate,
-                    job_role: naver.job_role,
-                    name: naver.name,
-                    project: naver.project,
-                    url: naver.url,
-                    user_id: naver.user_id,
-                  });
-                  setOpenModalDelete({ value: true });
-                }}
-                onClickEdit={editNaver}
-                key={naver.id}
-              />
-            );
-          })}
+        <S.ContentBox>
+          {navers &&
+            navers.value.map((naver: NaverProps) => {
+              return (
+                <Card
+                  CardTitle={naver.name}
+                  CardDescription={naver.job_role}
+                  CardImage={naver.url}
+                  onClickCardImage={() => {
+                    setOpenModalView({
+                      value: true,
+                    });
+                    setNaverState({
+                      id: naver.id,
+                      admission_date: naver.admission_date,
+                      birthdate: naver.birthdate,
+                      job_role: naver.job_role,
+                      name: naver.name,
+                      project: naver.project,
+                      url: naver.url,
+                      user_id: naver.user_id,
+                    });
+                  }}
+                  onClickDelete={() => {
+                    setNaverState({
+                      id: naver.id,
+                      admission_date: naver.admission_date,
+                      birthdate: naver.birthdate,
+                      job_role: naver.job_role,
+                      name: naver.name,
+                      project: naver.project,
+                      url: naver.url,
+                      user_id: naver.user_id,
+                    });
+                    setOpenModalDelete({ value: true });
+                  }}
+                  onClickEdit={editNaver}
+                  key={naver.id}
+                />
+              );
+            })}
+        </S.ContentBox>
         <ModalView
           image={AvatarImage1}
           ModalTitle={naverState.name}

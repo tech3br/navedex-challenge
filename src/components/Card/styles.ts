@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  margin: 28px 28px;
+`;
 
 export const CardImage = styled.img`
   &:hover {

@@ -11,6 +11,15 @@ export const Content = styled.div`
   padding: 20px;
 `;
 
+export const ContentBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+`;
+
 export const HeaderContent = styled.header`
   width: 100%;
   display: flex;
