@@ -153,7 +153,7 @@ const Main: React.FC = () => {
               <Card
                 CardTitle={naver.name}
                 CardDescription={naver.job_role}
-                CardImage={'https://navedex-api.herokuapp.com/v1/' + naver.url}
+                CardImage={naver.url}
                 onClickCardImage={() => {
                   setOpenModalView({
                     value: true,

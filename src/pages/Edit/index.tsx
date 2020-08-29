@@ -27,14 +27,13 @@ interface URLProps {
 }
 
 interface NaverProps {
-  id: string
+  id: string;
 }
 
 const Edit: React.FC<any> = (props: any) => {
-  
-  const { match } = props
-  const [naver, setNaver] = useState<NaverProps>({ id: match.params.id })
-  console.log(match)
+  const { match } = props;
+  const [naver, setNaver] = useState<NaverProps>({ id: match.params.id });
+  console.log(match);
 
   const [nameState, setNameState] = useState<NameProps>({
     value: '',
@@ -87,7 +86,7 @@ const Edit: React.FC<any> = (props: any) => {
   };
 
   async function editNaver(event: { preventDefault: () => void }) {
-    event.preventDefault();    
+    event.preventDefault();
 
     const job_role = jobRoleState;
     const admission_date = admissionDateState;
@@ -144,7 +143,7 @@ const Edit: React.FC<any> = (props: any) => {
                   color="#000000"
                   placeholder="Nome"
                   margin="0px 0px 40px 0px"
-                  onChange={() => OnChangeName}
+                  onChange={OnChangeName}
                 />
                 <S.Label>Idade</S.Label>
                 <Input

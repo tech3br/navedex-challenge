@@ -1,4 +1,4 @@
-import React, { useState, FormEvent, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import * as S from './styles';
@@ -7,110 +7,45 @@ import { showError } from '../../global';
 import { success } from '../../config/msgs';
 import { ToastContainer } from 'react-toastify';
 import { MdArrowBack } from 'react-icons/md';
+import { useHistory } from 'react-router-dom';
 
-interface NameProps {
-  value: string;
-}
-interface IdadeProps {
-  value: string;
-}
-interface ProjectProps {
-  value: string;
-}
-interface JobRoleProps {
-  value: string;
-}
-interface AdmissionDateProps {
-  value: string;
-}
-interface URLProps {
-  value: string;
+interface FormDataProps {
+  job_role: string;
+  admission_date: string;
+  birthdate: string;
+  project: string;
+  name: string;
+  url: string;
 }
 
 const Add: React.FC<any> = () => {
-  const [nameState, setNameState] = useState<NameProps>({
-    value: '',
+  const history = useHistory();
+
+  const [formData, setFormData] = useState<FormDataProps>({
+    job_role: '',
+    admission_date: '',
+    birthdate: '',
+    project: '',
+    name: '',
+    url: '',
   });
 
-  const [idadeState, setIdadeState] = useState<IdadeProps>({
-    value: '',
-  });
-
-  const [projectState, setProjectState] = useState<ProjectProps>({
-    value: '',
-  });
-
-  const [jobRoleState, setJobRoleState] = useState<JobRoleProps>({
-    value: '',
-  });
-
-  const [admissionDateState, setAdmissionDateState] = useState<
-    AdmissionDateProps
-  >({
-    value: '',
-  });
-
-  const [urlState, setURLState] = useState<URLProps>({
-    value: '',
-  });
-
-  const OnChangeName = (event: ChangeEvent<HTMLInputElement>) => {
-    setNameState({ value: event.currentTarget.value });
-  };
-
-  const OnChangeIdade = (event: React.FormEvent<HTMLInputElement>) => {
-    setIdadeState({ value: event.currentTarget.value });
-  };
-
-  const OnChangeProject = (event: React.FormEvent<HTMLInputElement>) => {
-    setProjectState({ value: event.currentTarget.value });
-  };
-
-  const OnChangeJobRole = (event: React.FormEvent<HTMLInputElement>) => {
-    setJobRoleState({ value: event.currentTarget.value });
-  };
-
-  const OnChangeAdmissionDate = (event: React.FormEvent<HTMLInputElement>) => {
-    setAdmissionDateState({ value: event.currentTarget.value });
-  };
-
-  const OnChangeURL = (event: React.FormEvent<HTMLInputElement>) => {
-    setURLState({ value: event.currentTarget.value });
-  };
+  function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  }
 
   async function addNaver(event: { preventDefault: () => void }) {
     event.preventDefault();
 
-    const job_role = jobRoleState;
-    const admission_date = admissionDateState;
-    const birthdate = idadeState;
-    const project = projectState;
-    const name = nameState;
-    const url = urlState;
-
-    const data = {
-      job_role,
-      admission_date,
-      birthdate,
-      project,
-      name,
-      url,
-    };
-
-    const token = localStorage.getItem('userKey');
-    console.log(token);
-
     await api
-      .post('/navers', {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        data,
-      })
-      .then((result) => {
-        console.log(result.data);
-        success(result.data);
+      .post('/navers', formData)
+      .then(() => {
+        success('Naver cadastrado com sucesso!');
+        history.push("/main");
       })
       .catch(showError);
   }
@@ -138,7 +73,8 @@ const Add: React.FC<any> = () => {
                   color="#000000"
                   placeholder="Nome"
                   margin="0px 0px 40px 0px"
-                  onChange={() => OnChangeName}
+                  name="name"
+                  onChange={handleInputChange}
                 />
                 <S.Label>Idade</S.Label>
                 <Input
@@ -150,7 +86,8 @@ const Add: React.FC<any> = () => {
                   color="#000000"
                   placeholder="Idade"
                   margin="0px 0px 40px 0px"
-                  onChange={() => OnChangeIdade}
+                  name="birthdate"
+                  onChange={handleInputChange}
                 />
                 <S.Label>Projetos que participou</S.Label>
                 <Input
@@ -162,7 +99,8 @@ const Add: React.FC<any> = () => {
                   color="#000000"
                   placeholder="Projetos que participou"
                   margin="0px 0px 40px 0px"
-                  onChange={() => OnChangeProject}
+                  name="project"
+                  onChange={handleInputChange}
                 />
               </fieldset>
               <fieldset>
@@ -176,7 +114,8 @@ const Add: React.FC<any> = () => {
                   color="#000000"
                   placeholder="Cargo"
                   margin="0px 0px 40px 0px"
-                  onChange={() => OnChangeJobRole}
+                  name="job_role"
+                  onChange={handleInputChange}
                 />
                 <S.Label>Tempo de empresa</S.Label>
                 <Input
@@ -188,7 +127,8 @@ const Add: React.FC<any> = () => {
                   color="#000000"
                   placeholder="Tempo de empresa"
                   margin="0px 0px 40px 0px"
-                  onChange={() => OnChangeAdmissionDate}
+                  name="admission_date"
+                  onChange={handleInputChange}
                 />
                 <S.Label>URL da foto do Naver</S.Label>
                 <Input
@@ -200,7 +140,8 @@ const Add: React.FC<any> = () => {
                   color="#000000"
                   placeholder="URL da foto do Naver"
                   margin="0px 0px 40px 0px"
-                  onChange={() => OnChangeURL}
+                  name="url"
+                  onChange={handleInputChange}
                 />
               </fieldset>
             </div>

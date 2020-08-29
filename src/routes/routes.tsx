@@ -37,15 +37,13 @@ const PrivateRoute = (props: PrivateRouteProps) => {
 };
 
 const Routes = () => (
-  <BrowserRouter>
-    <Switch>
-      <PrivateRoute path="/main" component={Main} />
-      <PrivateRoute path="/add" component={Add} />
-      <PrivateRoute path="/edit/:id" component={Edit} />
-      <Route exact path="/" component={Login} />
-      <Redirect from="*" to="/" />
-    </Switch>
-  </BrowserRouter>
+  <Switch>
+    <PrivateRoute path="/main" component={Main} />
+    <PrivateRoute path="/add" component={Add} />
+    <PrivateRoute path="/edit/:id" component={Edit} />
+    <Route exact path="/" component={Login} />
+    <Redirect from="*" to="/" />
+  </Switch>
 );
 
 export default Routes;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 
 export const Container = styled.div``;
 
@@ -19,7 +20,10 @@ export const LogoNav = styled.img`
 
 export const Nav = styled.div``;
 
-export const Link = styled.a`
+export const LinkComponent = styled(Link)`
+
+  color: #000000;
+
   &:hover {
     cursor: pointer;
   }

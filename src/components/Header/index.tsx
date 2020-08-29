@@ -5,10 +5,10 @@ import { useHistory } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const history = useHistory();
-  // funcao para sair da navedex
-  const exit = () => {
+
+  // funcao para deletar o storage
+  const handleDeleteStorage = () => {
     localStorage.removeItem('userKey');
-    history.push('/');
   };
 
   return (
@@ -19,7 +19,7 @@ const Header: React.FC = () => {
           alt="logo da nave.rs ao lado esquerdo do header"
         />
         <S.Nav>
-          <S.Link onClick={exit}>Sair</S.Link>
+          <S.LinkComponent to="/" onClick={handleDeleteStorage}>Sair</S.LinkComponent>
         </S.Nav>
       </S.Header>
     </>

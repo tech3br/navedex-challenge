@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FormEvent, ChangeEvent, ChangeEventHandler } from 'react';
 
 import * as S from './styles';
 
@@ -12,7 +12,8 @@ interface InputProps {
   placeholder?: string;
   borderWidth?: string;
   borderColor?: string;
-  onChange: () => void;
+  onChange: ChangeEventHandler<HTMLInputElement>;
+  name?: string;
 }
 
 const Input = (props: InputProps) => {
@@ -27,6 +28,7 @@ const Input = (props: InputProps) => {
       borderWidth={props.borderWidth}
       borderColor={props.borderColor}
       onChange={props.onChange}
+      name={props.name}
     />
   );
 };

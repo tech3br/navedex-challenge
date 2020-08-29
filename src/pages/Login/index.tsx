@@ -7,6 +7,7 @@ import { userKey } from '../../global';
 import { useHistory } from 'react-router-dom';
 import { showError } from '../../global';
 import { ToastContainer } from 'react-toastify';
+import { global } from '../../config/header';
 
 // preferi separar as props pois para manutencao de erros de valores e mais facil a identificacao
 interface EmailProps {
@@ -42,6 +43,7 @@ const Login: React.FC<any> = () => {
       })
       .then((result) => {
         localStorage.setItem('userKey', result.data.token);
+        global();
         history.push('/main');
       })
       .catch(showError);
