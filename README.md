@@ -2,8 +2,6 @@
 
 ## Navedex - criado por Daniel Filgueira - [tech3br](https://github.com/tech3br)
 
-O Navedex foi desenvolvido para a obtenção da vaga de frontend developer na Nave.rs.
-
 O sistema consiste em uma web app para visualização e criação dos navers, possuindo informações como: nomes, idades, cargos, tempo de empresa e projetos que participou.
 
 ## Instalação de bibliotecas do projeto
