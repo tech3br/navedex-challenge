@@ -1,4 +1,4 @@
-# Desafio de frontend
+# Desafio Frontend
 
 ## Navedex - criado por Daniel Filgueira - [tech3br](https://github.com/tech3br)
 
@@ -46,9 +46,9 @@ O código de CSS não foi 100% fiel mas chegou bem próximo.
 
 O layout é importante mas funcionalidades mais ainda.
 
-## Contribuição e Experiencias
+## Contribuição e Experiências
 
-O projeto serviu como experiencias para treino e uso de libs (toastify nunca tinha usado) e também para gerir o tempo de entrega.
+O projeto teve como objetivo o treino de skills, gerenciar o tempo de entrega de resultado e uso de libs (toastify nunca havia usado).
 
 Foquei em tipagem, funcionalidades. O CSS ficou muito bom ao meu ver. Mas sempre da para melhorar.
 
